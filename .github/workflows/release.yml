@@ -27,10 +27,11 @@ jobs:
           passphrase: ${{ secrets.PGP_PASSPHRASE }}
       - name: Publish
         run: >
-          ./mill -i  --debug \
+          ./mill -i --debug show \
               mill.contrib.sonatypecentral.SonatypeCentralPublishModule/publishAll \
               --gpgArgs --passphrase=$MILL_PGP_PASSPHRASE,--no-tty,--pinentry-mode,loopback,--batch,--yes,-a,-b \
               --publishArtifacts __.publishArtifacts \
               --readTimeout 600000 \
               --awaitTimeout 600000 \
-              --connectTimeout 36000
+              --connectTimeout 36000 \
+              --shouldRelease true
