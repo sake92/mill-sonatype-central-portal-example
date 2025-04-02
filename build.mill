@@ -1,0 +1,20 @@
+package build
+
+import $ivy.`com.lihaoyi::mill-contrib-sonatypecentral:`
+import mill._, scalalib._, publish._
+import mill.contrib.sonatypecentral.SonatypeCentralPublishModule
+
+object mylib extends ScalaModule with SonatypeCentralPublishModule {
+  def scalaVersion = "3.6.3"
+  def publishVersion = "0.0.1-SNAPSHOT"
+  def pomSettings = PomSettings(
+    organization = "io.github.sake92",
+    url = "https://github.com/sake92/mill-sonatype-central-portal-example",
+    licenses = Seq(License.Common.MIT),
+    versionControl = VersionControl.github("sake92", "mill-sonatype-central-portal-example"),
+    description = "mill-sonatype-central-portal-example",
+    developers = Seq(
+      Developer("sake92", "Sakib Hadžiavdić", "https://sake.ba")
+    )
+  )
+}
