@@ -32,6 +32,4 @@ jobs:
               --publishArtifacts __.publishArtifacts \
               --readTimeout 600000 \
               --awaitTimeout 600000 \
-              --connectTimeout 36000 \
-              --release true \
-              --signed true
+              --connectTimeout 36000
