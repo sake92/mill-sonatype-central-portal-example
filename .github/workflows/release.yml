@@ -23,8 +23,8 @@ jobs:
       - name: Import GPG key
         uses: crazy-max/ghaction-import-gpg@v6
         with:
-          gpg_private_key: $MILL_PGP_SECRET
-          passphrase: $MILL_PGP_PASSPHRASE
+          gpg_private_key: ${{ secrets.PGP_SECRET }}
+          passphrase: ${{ secrets.PGP_PASSPHRASE }}
       - name: Publish
         run: >
           ./mill -i mill.contrib.sonatypecentral.SonatypeCentralPublishModule/publishAll \
